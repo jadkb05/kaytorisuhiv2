@@ -1,0 +1,32 @@
+Paquet source — Kaytori Sushi v2 (repo kaytorisuhiv2)
+=====================================================
+
+Dépôt GitHub : https://github.com/jadkb05/kaytorisuhiv2
+Stack : Vite 5, React 19, TypeScript, Tailwind CSS.
+
+Après extraction :
+  cd kaytorisuhiv2
+  npm install
+  npm run dev
+  npm run build
+
+Variables d’environnement (optionnel) :
+  Copier .env.example → .env.production sur Vercel avec VITE_PUBLIC_SITE_URL=https://…
+  pour JSON-LD (Restaurant) avec url / image absolues.
+
+Fichiers clés
+-------------
+- src/config/site.ts        — coordonnées, horaires (hoursWeekdays / hoursWeekend), heroHeroBgImage
+- src/data/yumloMenu.ts     — menu en ligne
+- src/data/startersYakamon.ts — starters + images locales
+- src/data/gallery.ts       — galerie (URLs Unsplash HD ; remplaçable par /public/gallery/)
+- src/data/dishImages.ts    — CLIENT_DISH_IMAGES (photos /public/menu_dishes/photos/) + CUSTOM_DISH_IMAGES (bentos/assortiments PDF)
+- src/components/YakamonOnlineMenu.tsx — menu par onglets, photos carrées, panier
+- src/cart/                 — panier + message WhatsApp
+
+Médias
+------
+- public/ — logos, PDF menu, menu_dishes/*.jpg + menu_dishes/photos/*.jpg (vraies photos plats)
+- src/assets/starters/*.png
+
+Exclus de l’archive : node_modules, dist, .git (régénérer avec npm install / npm run build).
