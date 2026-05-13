@@ -32,31 +32,31 @@ export function MobileStickyBar() {
       inert={!visible}
     >
       {/* Fond opaque : évite le « flou » grisâtre (blur + transparence) qui masque le texte */}
-      <div className="border-t-2 border-kaytori-gold/50 bg-kaytori-black shadow-[0_-8px_32px_rgba(0,0,0,0.55)]">
+      <div className="border-t border-kaytori-gold/45 bg-kaytori-black shadow-[0_-6px_24px_rgba(0,0,0,0.45)]">
         <div
           className="grid grid-cols-3 gap-0"
-          style={{ paddingBottom: "env(safe-area-inset-bottom, 0)" }}
+          style={{ paddingBottom: "max(0.25rem, env(safe-area-inset-bottom, 0))" }}
         >
           <a
             href="#menu"
-            className="group flex min-h-[52px] flex-col items-center justify-center gap-1 py-3 text-white transition-colors active:bg-white/10 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-kaytori-gold"
+            className="group flex min-h-[44px] flex-col items-center justify-center gap-0.5 py-1.5 text-white transition-colors active:bg-white/10 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-kaytori-gold"
           >
-            <span className="text-xl drop-shadow-[0_1px_2px_rgba(0,0,0,0.9)]" aria-hidden>
+            <span className="text-[1.05rem] leading-none drop-shadow-[0_1px_2px_rgba(0,0,0,0.9)]" aria-hidden>
               🍣
             </span>
-            <span className="text-[0.72rem] font-bold uppercase tracking-[0.12em] text-white [text-shadow:0_1px_3px_rgba(0,0,0,1)]">
+            <span className="text-[0.62rem] font-bold uppercase leading-none tracking-[0.1em] text-white [text-shadow:0_1px_2px_rgba(0,0,0,1)]">
               Menu
             </span>
           </a>
           <a
             href="tel:+212520026824"
-            className="group flex min-h-[52px] flex-col items-center justify-center gap-1 border-x border-white/20 py-3 text-white transition-colors active:bg-white/10 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-kaytori-gold"
+            className="group flex min-h-[44px] flex-col items-center justify-center gap-0.5 border-x border-white/15 py-1.5 text-white transition-colors active:bg-white/10 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-kaytori-gold"
             aria-label={`Appeler ${SITE.phoneFixeDisplay}`}
           >
-            <span className="text-xl drop-shadow-[0_1px_2px_rgba(0,0,0,0.9)]" aria-hidden>
+            <span className="text-[1.05rem] leading-none drop-shadow-[0_1px_2px_rgba(0,0,0,0.9)]" aria-hidden>
               📞
             </span>
-            <span className="text-[0.72rem] font-bold uppercase tracking-[0.12em] text-white [text-shadow:0_1px_3px_rgba(0,0,0,1)]">
+            <span className="text-[0.62rem] font-bold uppercase leading-none tracking-[0.1em] text-white [text-shadow:0_1px_2px_rgba(0,0,0,1)]">
               Appeler
             </span>
           </a>
@@ -66,12 +66,12 @@ export function MobileStickyBar() {
             )}
             target="_blank"
             rel="noopener noreferrer"
-            className="group flex min-h-[52px] flex-col items-center justify-center gap-1 bg-gold-shine py-3 text-kaytori-black transition-transform active:scale-[0.98] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-white"
+            className="group flex min-h-[44px] flex-col items-center justify-center gap-0.5 bg-gold-shine py-1.5 text-kaytori-black transition-transform active:scale-[0.98] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-white"
           >
-            <span className="text-xl" aria-hidden>
+            <span className="text-[1.05rem] leading-none" aria-hidden>
               💬
             </span>
-            <span className="text-[0.72rem] font-extrabold uppercase tracking-[0.12em]">
+            <span className="text-[0.62rem] font-extrabold uppercase leading-none tracking-[0.1em]">
               WhatsApp
             </span>
           </a>
