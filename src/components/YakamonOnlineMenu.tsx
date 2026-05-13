@@ -358,7 +358,7 @@ export function YakamonOnlineMenu() {
   );
 
   return (
-    <div className="rounded-2xl border border-kaytori-green/[0.08] bg-[#f7f6f2] shadow-[0_12px_40px_-20px_rgba(10,15,13,0.12)] max-md:rounded-xl max-md:shadow-[0_8px_28px_-16px_rgba(10,15,13,0.1)] md:rounded-[1.65rem] md:shadow-[0_22px_56px_-32px_rgba(10,15,13,0.12)]">
+    <div className="rounded-none border-0 bg-[#f7f6f2] shadow-none max-md:rounded-none md:rounded-[1.35rem]">
       <header className="border-b border-kaytori-black/[0.05] bg-[#fafaf7] px-3 pb-4 pt-6 max-md:pt-5 md:px-10 md:pb-7 md:pt-9">
         <div className="text-center">
           <p className="font-display text-[1.45rem] font-medium tracking-tight text-kaytori-black max-md:leading-tight sm:text-[1.55rem] md:text-[1.75rem]">
@@ -405,23 +405,28 @@ export function YakamonOnlineMenu() {
             className="mx-auto mt-5 max-w-5xl md:mt-6"
             aria-label="Accès rapide aux catégories"
           >
-            <p className="mb-2.5 text-center font-sans text-[0.58rem] font-semibold uppercase tracking-[0.22em] text-kaytori-muted/80">
-              Sommaire — défile pour tout voir ↓
+            <p className="mb-1 text-center font-sans text-[0.58rem] font-semibold uppercase tracking-[0.22em] text-kaytori-muted/75">
+              Sommaire
             </p>
-            <ul className="flex list-none flex-wrap justify-center gap-1.5 sm:gap-2">
+            <p className="mb-3 text-center font-sans text-[0.62rem] font-normal text-kaytori-muted/65 md:mb-3.5">
+              Choisis une rubrique pour aller à la section
+            </p>
+            <ul className="mx-auto grid max-w-5xl list-none grid-cols-2 gap-1.5 sm:grid-cols-3 sm:gap-2 md:grid-cols-4 md:gap-2 lg:grid-cols-5 xl:grid-cols-6">
               {sectionsData.map(({ category }) => (
-                <li key={category}>
+                <li key={category} className="min-w-0">
                   <a
                     href={`#${categoryAnchorId(category)}`}
-                    className="group inline-flex items-center gap-1.5 rounded-full border border-kaytori-black/[0.08] bg-white px-3 py-1.5 font-sans text-[0.7rem] font-medium text-kaytori-black/85 shadow-[0_1px_0_rgba(10,15,13,0.03)] outline-none transition-all duration-200 hover:-translate-y-0.5 hover:border-kaytori-gold/50 hover:bg-gradient-to-b hover:from-white hover:to-kaytori-cream/50 hover:text-kaytori-black hover:shadow-[0_4px_14px_-6px_rgba(10,15,13,0.15)] focus-visible:ring-2 focus-visible:ring-kaytori-green/35 focus-visible:ring-offset-2 focus-visible:ring-offset-[#fafaf7] sm:px-3.5 sm:py-2 sm:text-[0.74rem]"
+                    className="group flex min-h-[3.5rem] w-full flex-col items-center justify-center gap-0.5 overflow-hidden rounded-lg border border-kaytori-black/10 bg-white px-1 py-1.5 text-center outline-none transition-colors duration-150 hover:border-kaytori-gold/50 hover:bg-kaytori-cream/40 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-kaytori-green/40 sm:min-h-[3.75rem] sm:rounded-xl sm:px-1.5 sm:py-2"
                   >
                     <span
-                      className="text-[0.95rem] leading-none transition-transform duration-200 group-hover:scale-110"
+                      className="shrink-0 text-[0.95rem] leading-none transition-transform duration-200 group-hover:scale-105 sm:text-[1.02rem]"
                       aria-hidden
                     >
                       {categoryIcon(category)}
                     </span>
-                    <span className="whitespace-nowrap">{category}</span>
+                    <span className="line-clamp-2 w-full break-words px-0.5 font-sans text-[0.52rem] font-semibold leading-[1.12] tracking-tight text-kaytori-green sm:text-[0.56rem] sm:leading-snug">
+                      {category}
+                    </span>
                   </a>
                 </li>
               ))}

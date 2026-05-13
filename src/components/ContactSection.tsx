@@ -140,7 +140,7 @@ export function ContactSection() {
                   </span>
                   <div className="flex-1 text-left">
                     <div className="text-[0.7rem] font-bold uppercase tracking-wider text-kaytori-muted">
-                      Itinéraire
+                      Localisation
                     </div>
                     <div className="font-display text-[0.95rem] font-semibold text-kaytori-black group-hover:text-kaytori-green">
                       Ouvrir sur Google Maps
@@ -196,10 +196,10 @@ export function ContactSection() {
                   target="_blank"
                   rel="noopener noreferrer"
                   className="btn-shine group flex flex-col items-center justify-center gap-1 rounded-xl bg-gold-shine px-6 py-4 text-center text-kaytori-black shadow-card transition-all duration-300 ease-smooth hover:-translate-y-1 hover:shadow-gold"
-                  aria-label="Réserver via WhatsApp"
+                  aria-label="WhatsApp"
                 >
                   <span className="font-display text-base font-semibold tracking-tight md:text-[1.05rem]">
-                    💬 Réserver via WhatsApp
+                    💬 WhatsApp
                   </span>
                   <span className="text-[0.78rem] font-medium opacity-90">
                     Réponse rapide pendant les heures d&apos;ouverture

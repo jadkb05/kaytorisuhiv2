@@ -91,12 +91,12 @@ export function HeroSection() {
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex w-full shrink-0 items-center justify-center gap-1.5 rounded-xl border-2 border-kaytori-gold/50 bg-kaytori-black/30 px-3.5 py-3 text-center text-[0.8125rem] font-semibold leading-tight text-[#f2ebe3] backdrop-blur-sm transition-all duration-300 ease-smooth hover:border-kaytori-gold hover:bg-kaytori-gold/15 sm:w-auto sm:gap-2 sm:px-5 sm:py-3.5 sm:text-[0.875rem]"
-              aria-label="Réserver via WhatsApp — ouvrir une conversation"
+              aria-label="WhatsApp — ouvrir une conversation"
             >
               <span aria-hidden className="shrink-0">
                 💬
               </span>
-              Réserver via WhatsApp
+              WhatsApp
             </a>
             <a
               href={SITE.mapsUrl}

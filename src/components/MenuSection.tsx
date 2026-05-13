@@ -29,29 +29,25 @@ export function MenuSection() {
         <div className="absolute -left-40 top-24 h-[420px] w-[420px] rounded-full bg-kaytori-green/12 blur-[100px]" />
         <div className="absolute -right-32 bottom-20 h-[380px] w-[380px] rounded-full bg-kaytori-gold/14 blur-[90px]" />
       </div>
-      <div className="pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-kaytori-green/20 to-transparent" />
+      <div className="pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-kaytori-gold/35 to-transparent" />
 
       <div className="relative mx-auto w-full max-w-[1180px] px-2 sm:px-4 md:px-5">
         <Reveal>
           <header className="mx-auto mb-12 max-w-2xl text-center md:mb-16">
-            <span className="inline-flex items-center gap-2 rounded-full border border-kaytori-gold/35 bg-white/60 px-4 py-1.5 text-[0.68rem] font-bold uppercase tracking-[0.22em] text-kaytori-green shadow-sm backdrop-blur-sm">
+            <span className="inline-flex items-center gap-2 rounded-full border border-kaytori-gold/45 bg-white/70 px-4 py-1.5 text-[0.68rem] font-bold uppercase tracking-[0.22em] text-kaytori-black shadow-sm backdrop-blur-sm">
               Carte officielle
             </span>
-            <h2 className="mt-5 font-display text-[clamp(2.2rem,4.5vw,3.6rem)] font-semibold tracking-tight text-kaytori-black md:mt-6">
+            <h2 className="mt-5 bg-gradient-to-br from-kaytori-black via-kaytori-black to-kaytori-gold bg-clip-text font-display text-[clamp(2.2rem,4.5vw,3.6rem)] font-semibold tracking-tight text-transparent md:mt-6">
               La carte Kaytori
             </h2>
-            <p className="mt-4 text-lg font-light leading-relaxed text-kaytori-muted">
-              Menu interactif : toutes les catégories, photos et prix en DH. Ajoute les plats au panier puis envoie ta commande sur{" "}
-              <strong className="font-semibold text-kaytori-black">WhatsApp</strong> avec le total. La carte PDF reste la référence officielle.
-            </p>
-            <div className="mx-auto mt-8 flex max-w-md flex-wrap justify-center gap-2 rounded-2xl border border-kaytori-black/10 bg-white/70 p-1.5 shadow-sm backdrop-blur-sm">
+            <div className="mx-auto mt-6 flex max-w-md flex-wrap justify-center gap-2 rounded-2xl border border-kaytori-gold/25 bg-white/85 p-1.5 shadow-[0_2px_20px_-8px_rgba(212,175,55,0.25)] backdrop-blur-sm md:mt-8">
               <button
                 type="button"
                 onClick={() => setMenuTab("online")}
-                className={`flex-1 rounded-xl px-4 py-2.5 text-sm font-semibold transition-all ${
+                className={`flex-1 rounded-xl px-4 py-2.5 text-sm font-semibold transition-all duration-300 ${
                   menuTab === "online"
-                    ? "bg-kaytori-black text-white shadow-md"
-                    : "text-kaytori-black/70 hover:bg-white"
+                    ? "bg-kaytori-black text-kaytori-goldLight shadow-[0_4px_18px_-4px_rgba(10,15,13,0.35)] ring-1 ring-kaytori-gold/35"
+                    : "text-kaytori-black/55 hover:bg-kaytori-cream/60 hover:text-kaytori-black"
                 }`}
               >
                 Menu en ligne / Commander
@@ -59,10 +55,10 @@ export function MenuSection() {
               <button
                 type="button"
                 onClick={() => setMenuTab("pdf")}
-                className={`flex-1 rounded-xl px-4 py-2.5 text-sm font-semibold transition-all ${
+                className={`flex-1 rounded-xl px-4 py-2.5 text-sm font-semibold transition-all duration-300 ${
                   menuTab === "pdf"
-                    ? "bg-kaytori-black text-white shadow-md"
-                    : "text-kaytori-black/70 hover:bg-white"
+                    ? "bg-kaytori-black text-kaytori-goldLight shadow-[0_4px_18px_-4px_rgba(10,15,13,0.35)] ring-1 ring-kaytori-gold/35"
+                    : "text-kaytori-black/55 hover:bg-kaytori-cream/60 hover:text-kaytori-black"
                 }`}
               >
                 Menu PDF
@@ -73,7 +69,7 @@ export function MenuSection() {
 
         {menuTab === "online" ? (
           <div className="relative mx-auto max-w-[1100px] max-md:-mx-0.5">
-            <div className="rounded-xl shadow-lg ring-1 ring-kaytori-black/[0.06] max-md:rounded-xl max-md:shadow-md max-md:ring-0 md:rounded-[28px] md:bg-gradient-to-br md:from-kaytori-goldLight md:via-kaytori-gold md:to-[#8a6f28] md:p-[3px] md:shadow-[0_28px_90px_-18px_rgba(10,15,13,0.45)] md:ring-1 md:ring-kaytori-gold/30">
+            <div className="overflow-hidden rounded-2xl border border-kaytori-black/[0.07] shadow-[0_12px_40px_-18px_rgba(10,15,13,0.14)] max-md:rounded-xl max-md:shadow-md md:rounded-[1.35rem] md:border-kaytori-gold/35 md:shadow-[0_22px_56px_-28px_rgba(10,15,13,0.18)]">
               <YakamonOnlineMenu />
             </div>
           </div>
