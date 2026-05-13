@@ -402,35 +402,47 @@ export function YakamonOnlineMenu() {
 
         {sectionsData.length > 1 ? (
           <nav
-            className="mx-auto mt-5 max-w-5xl md:mt-6"
+            className="mx-auto mt-5 max-w-full md:mt-6"
             aria-label="Accès rapide aux catégories"
           >
             <p className="mb-1 text-center font-sans text-[0.58rem] font-semibold uppercase tracking-[0.22em] text-kaytori-muted/75">
               Sommaire
             </p>
-            <p className="mb-3 text-center font-sans text-[0.62rem] font-normal text-kaytori-muted/65 md:mb-3.5">
-              Choisis une rubrique pour aller à la section
+            <p className="mb-2.5 text-center font-sans text-[0.62rem] font-normal text-kaytori-muted/65 md:mb-3">
+              Fais défiler vers la droite pour voir toutes les rubriques
             </p>
-            <ul className="mx-auto grid max-w-5xl list-none grid-cols-2 gap-1.5 sm:grid-cols-3 sm:gap-2 md:grid-cols-4 md:gap-2 lg:grid-cols-5 xl:grid-cols-6">
-              {sectionsData.map(({ category }) => (
-                <li key={category} className="min-w-0">
-                  <a
-                    href={`#${categoryAnchorId(category)}`}
-                    className="group flex min-h-[3.5rem] w-full flex-col items-center justify-center gap-0.5 overflow-hidden rounded-lg border border-kaytori-black/10 bg-white px-1 py-1.5 text-center outline-none transition-colors duration-150 hover:border-kaytori-gold/50 hover:bg-kaytori-cream/40 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-kaytori-green/40 sm:min-h-[3.75rem] sm:rounded-xl sm:px-1.5 sm:py-2"
-                  >
-                    <span
-                      className="shrink-0 text-[0.95rem] leading-none transition-transform duration-200 group-hover:scale-105 sm:text-[1.02rem]"
-                      aria-hidden
+            <div className="relative -mx-1 md:mx-0">
+              <div
+                className="pointer-events-none absolute inset-y-0 left-0 z-[1] w-6 bg-gradient-to-r from-[#fafaf7] to-transparent md:w-8"
+                aria-hidden
+              />
+              <div
+                className="pointer-events-none absolute inset-y-0 right-0 z-[1] w-6 bg-gradient-to-l from-[#fafaf7] to-transparent md:w-8"
+                aria-hidden
+              />
+              <ul
+                className="touch-pan-x flex snap-x snap-mandatory list-none flex-nowrap gap-2 overflow-x-auto overscroll-x-contain scroll-smooth px-3 py-1 [-ms-overflow-style:none] [scrollbar-width:none] md:gap-2.5 md:px-4 [&::-webkit-scrollbar]:hidden"
+              >
+                {sectionsData.map(({ category }) => (
+                  <li key={category} className="snap-start shrink-0">
+                    <a
+                      href={`#${categoryAnchorId(category)}`}
+                      className="group flex h-[4.25rem] w-[5.75rem] flex-col items-center justify-center gap-0.5 overflow-hidden rounded-xl border border-kaytori-black/10 bg-white px-1 py-1.5 text-center outline-none transition-colors duration-150 hover:border-kaytori-gold/50 hover:bg-kaytori-cream/40 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-kaytori-green/40 sm:h-[4.5rem] sm:w-24"
                     >
-                      {categoryIcon(category)}
-                    </span>
-                    <span className="line-clamp-2 w-full break-words px-0.5 font-sans text-[0.52rem] font-semibold leading-[1.12] tracking-tight text-kaytori-green sm:text-[0.56rem] sm:leading-snug">
-                      {category}
-                    </span>
-                  </a>
-                </li>
-              ))}
-            </ul>
+                      <span
+                        className="shrink-0 text-[0.95rem] leading-none transition-transform duration-200 group-hover:scale-105 sm:text-[1.02rem]"
+                        aria-hidden
+                      >
+                        {categoryIcon(category)}
+                      </span>
+                      <span className="line-clamp-2 w-full break-words px-0.5 font-sans text-[0.52rem] font-semibold leading-[1.12] tracking-tight text-kaytori-green sm:text-[0.54rem] sm:leading-snug">
+                        {category}
+                      </span>
+                    </a>
+                  </li>
+                ))}
+              </ul>
+            </div>
           </nav>
         ) : null}
 
