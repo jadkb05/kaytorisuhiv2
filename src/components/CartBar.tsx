@@ -14,8 +14,8 @@ export function CartBar() {
     <div className="pointer-events-none fixed inset-x-0 bottom-0 z-[45] flex flex-col items-stretch px-2 pb-[max(0.5rem,env(safe-area-inset-bottom))] pt-2 max-md:px-2 sm:px-5">
       {open ? (
         <div className="pointer-events-auto mx-auto mb-2 w-full max-w-lg">
-          <div className="max-h-[min(58vh,480px)] overflow-y-auto overscroll-y-contain rounded-2xl border border-kaytori-black/10 bg-white/98 shadow-[0_-8px_40px_rgba(10,15,13,0.14)] backdrop-blur-md">
-            <div className="flex min-h-[52px] items-center justify-between border-b border-kaytori-black/[0.06] px-4 py-3">
+          <div className="max-h-[min(58vh,480px)] overflow-y-auto overscroll-y-contain rounded-2xl border border-kaytori-green/25 bg-gradient-to-br from-white/88 via-emerald-50/75 to-kaytori-green/[0.14] shadow-[0_-12px_48px_-8px_rgba(0,77,51,0.22)] backdrop-blur-xl backdrop-saturate-150">
+            <div className="flex min-h-[52px] items-center justify-between border-b border-kaytori-green/15 bg-kaytori-green/[0.04] px-4 py-3">
               <p className="font-display text-base font-semibold text-kaytori-black">Panier</p>
               <button
                 type="button"
@@ -25,7 +25,7 @@ export function CartBar() {
                 Fermer
               </button>
             </div>
-            <ul className="divide-y divide-kaytori-black/[0.06] px-1 py-1">
+            <ul className="divide-y divide-kaytori-green/10 px-1 py-1">
               {lines.map((l) => (
                 <li key={l.id} className="flex items-center gap-2 py-3 pl-2 pr-1">
                   <div className="min-w-0 flex-1">
@@ -70,7 +70,7 @@ export function CartBar() {
                 </li>
               ))}
             </ul>
-            <div className="flex min-h-[52px] flex-wrap items-center justify-between gap-2 border-t border-kaytori-black/[0.06] px-4 py-3">
+            <div className="flex min-h-[52px] flex-wrap items-center justify-between gap-2 border-t border-kaytori-green/15 bg-kaytori-green/[0.04] px-4 py-3">
               <button
                 type="button"
                 onClick={() => {
@@ -89,7 +89,7 @@ export function CartBar() {
         </div>
       ) : null}
 
-      <div className="pointer-events-auto mx-auto flex w-full max-w-lg flex-col gap-2 rounded-2xl border border-kaytori-black/10 bg-[#fffcf7]/98 p-2 shadow-[0_-4px_32px_rgba(10,15,13,0.14)] backdrop-blur-md max-md:gap-2.5 max-md:p-2.5 sm:flex-row sm:items-center sm:gap-3 sm:p-3">
+      <div className="pointer-events-auto mx-auto flex w-full max-w-lg flex-col gap-2 rounded-2xl border border-kaytori-green/25 bg-gradient-to-br from-white/90 via-emerald-50/70 to-kaytori-green/[0.12] p-2 shadow-[0_-8px_36px_-6px_rgba(0,77,51,0.2)] backdrop-blur-xl backdrop-saturate-150 max-md:gap-2.5 max-md:p-2.5 sm:flex-row sm:items-center sm:gap-3 sm:p-3">
         <button
           type="button"
           onClick={() => setOpen((v) => !v)}
