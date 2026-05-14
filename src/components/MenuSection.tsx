@@ -69,7 +69,7 @@ export function MenuSection() {
 
         {menuTab === "online" ? (
           <div className="relative mx-auto max-w-[1100px] max-md:-mx-0.5">
-            <div className="overflow-hidden rounded-2xl border border-kaytori-black/[0.07] shadow-[0_12px_40px_-18px_rgba(10,15,13,0.14)] max-md:rounded-xl max-md:shadow-md md:rounded-[1.35rem] md:border-kaytori-gold/35 md:shadow-[0_22px_56px_-28px_rgba(10,15,13,0.18)]">
+            <div className="flex h-[min(76dvh,54rem)] min-h-[380px] max-h-[min(82dvh,56rem)] flex-col overflow-hidden rounded-2xl border border-kaytori-black/[0.07] shadow-[0_12px_40px_-18px_rgba(10,15,13,0.14)] max-md:rounded-xl max-md:shadow-md md:rounded-[1.35rem] md:border-kaytori-gold/35 md:shadow-[0_22px_56px_-28px_rgba(10,15,13,0.18)]">
               <YakamonOnlineMenu />
             </div>
           </div>

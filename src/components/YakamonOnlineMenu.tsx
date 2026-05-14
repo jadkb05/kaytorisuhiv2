@@ -358,8 +358,8 @@ export function YakamonOnlineMenu() {
   );
 
   return (
-    <div className="rounded-none border-0 bg-[#f7f6f2] shadow-none max-md:rounded-none md:rounded-[1.35rem]">
-      <header className="border-b border-kaytori-black/[0.05] bg-[#fafaf7] px-3 pb-4 pt-6 max-md:pt-5 md:px-10 md:pb-7 md:pt-9">
+    <div className="flex h-full min-h-0 flex-col overflow-hidden rounded-none border-0 bg-[#f7f6f2] shadow-none max-md:rounded-none md:rounded-[1.35rem]">
+      <header className="shrink-0 border-b border-kaytori-black/[0.05] bg-[#fafaf7] px-3 pb-4 pt-6 max-md:pt-5 md:px-10 md:pb-5 md:pt-8">
         <div className="text-center">
           <p className="font-display text-[1.45rem] font-medium tracking-tight text-kaytori-black max-md:leading-tight sm:text-[1.55rem] md:text-[1.75rem]">
             {SITE.nameAccent}
@@ -399,10 +399,12 @@ export function YakamonOnlineMenu() {
             ) : null}
           </div>
         </div>
+      </header>
 
+      <div className="relative min-h-0 flex-1 overflow-y-auto overscroll-y-contain scroll-smooth bg-[#f7f6f2] [scrollbar-gutter:stable]">
         {sectionsData.length > 1 ? (
           <nav
-            className="mx-auto mt-5 max-w-full md:mt-6"
+            className="sticky top-0 z-10 border-b border-kaytori-black/[0.06] bg-[#fafaf7]/95 px-3 pb-3 pt-3 shadow-[0_6px_16px_-8px_rgba(10,15,13,0.08)] backdrop-blur-md md:px-10 md:pb-3.5 md:pt-4"
             aria-label="Accès rapide aux catégories"
           >
             <p className="mb-1 text-center font-sans text-[0.58rem] font-semibold uppercase tracking-[0.22em] text-kaytori-muted/75">
@@ -446,16 +448,15 @@ export function YakamonOnlineMenu() {
           </nav>
         ) : null}
 
-        <p className="mx-auto mt-4 max-w-2xl text-center font-sans text-[0.72rem] leading-relaxed text-kaytori-muted md:mt-5 md:text-[0.72rem]">
+        <p className="mx-auto max-w-2xl px-3 pt-3 text-center font-sans text-[0.72rem] leading-relaxed text-kaytori-muted md:px-10 md:pt-4 md:text-[0.72rem]">
           <span className="font-medium text-kaytori-black">+</span> au panier, puis{" "}
           <span className="font-medium text-kaytori-green">WhatsApp</span> avec le total
           <span className="mt-1 block text-[0.7rem] text-kaytori-muted/90">
             Tarifs indicatifs — confirmation au restaurant.
           </span>
         </p>
-      </header>
 
-      <div className="px-2.5 py-5 max-md:pb-8 sm:px-6 sm:py-8 md:px-10 md:py-10">
+        <div className="px-2.5 pb-6 pt-2 max-md:pb-24 sm:px-6 sm:pb-8 sm:pt-3 md:px-10 md:pb-10 md:pt-4">
         {totalVisible === 0 ? (
           <div className="py-12 text-center">
             <div className="mb-3 text-4xl" aria-hidden>
@@ -485,7 +486,7 @@ export function YakamonOnlineMenu() {
                 <section
                   key={category}
                   id={categoryAnchorId(category)}
-                  className="scroll-mt-[calc(var(--header-h,0px)+1rem)]"
+                  className="scroll-mt-[min(12rem,36svh)]"
                   aria-labelledby={`heading-${categoryAnchorId(category)}`}
                 >
                   <div className="flex items-end justify-between gap-3 border-b-2 border-kaytori-gold/40 pb-3 md:pb-4">
@@ -529,6 +530,7 @@ export function YakamonOnlineMenu() {
             })}
           </div>
         )}
+        </div>
       </div>
     </div>
   );
