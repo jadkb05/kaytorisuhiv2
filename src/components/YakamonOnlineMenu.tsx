@@ -319,11 +319,9 @@ function categoryIcon(c: string): string {
 }
 
 /**
- * Menu en ligne — défilement vertical : toutes les catégories à la suite, recherche globale.
+ * Menu en ligne — défilement vertical : toutes les catégories à la suite.
  */
 export function YakamonOnlineMenu() {
-  const [query, setQuery] = useState("");
-
   const counts = useMemo(() => {
     const m = new Map<string, number>();
     for (const it of YUMLO_MENU) {
@@ -335,22 +333,13 @@ export function YakamonOnlineMenu() {
   const categories = useMemo(() => [...YUMLO_CATEGORIES], []);
 
   const sectionsData = useMemo(() => {
-    const q = norm(query.trim());
     return categories
       .map((cat) => {
-        const allInCat = YUMLO_MENU.filter((it) => it.category === cat);
-        const items = q
-          ? allInCat.filter(
-              (it) => norm(it.name).includes(q) || norm(it.description).includes(q),
-            )
-          : allInCat;
+        const items = YUMLO_MENU.filter((it) => it.category === cat);
         return { category: cat as YumloCategory, items };
       })
-      .filter(({ category, items }) => {
-        if (q) return items.length > 0;
-        return (counts.get(category) ?? 0) > 0;
-      });
-  }, [categories, query, counts]);
+      .filter(({ category }) => (counts.get(category) ?? 0) > 0);
+  }, [categories, counts]);
 
   const totalVisible = useMemo(
     () => sectionsData.reduce((acc, s) => acc + s.items.length, 0),
@@ -359,45 +348,20 @@ export function YakamonOnlineMenu() {
 
   return (
     <div className="flex h-full min-h-0 flex-col overflow-hidden rounded-none border-0 bg-[#f7f6f2] shadow-none max-md:rounded-none md:rounded-[1.35rem]">
-      <header className="shrink-0 border-b border-kaytori-black/[0.05] bg-[#fafaf7] px-3 pb-4 pt-6 max-md:pt-5 md:px-10 md:pb-5 md:pt-8">
-        <div className="text-center">
-          <p className="font-display text-[1.45rem] font-medium tracking-tight text-kaytori-black max-md:leading-tight sm:text-[1.55rem] md:text-[1.75rem]">
-            {SITE.nameAccent}
+      <header className="relative shrink-0 overflow-hidden border-b border-kaytori-gold/35 bg-kaytori-black px-3 pb-4 pt-6 shadow-[inset_0_1px_0_rgba(232,216,159,0.08)] max-md:pt-5 md:px-10 md:pb-5 md:pt-8">
+        <div
+          className="pointer-events-none absolute inset-0 bg-gradient-to-b from-kaytori-gold/[0.06] via-transparent to-transparent"
+          aria-hidden
+        />
+        <div className="relative text-center">
+          <p className="font-display text-[1.45rem] font-medium tracking-tight max-md:leading-tight sm:text-[1.55rem] md:text-[1.75rem]">
+            <span className="bg-gradient-to-br from-kaytori-goldLight via-kaytori-gold to-[#9a7828] bg-clip-text text-transparent drop-shadow-[0_1px_24px_rgba(212,175,55,0.18)]">
+              {SITE.nameAccent}
+            </span>
           </p>
-          <p className="mt-1.5 font-sans text-[0.66rem] font-medium uppercase tracking-[0.26em] text-kaytori-muted md:mt-2 md:text-[0.65rem] md:tracking-[0.28em]">
+          <p className="mt-1.5 font-sans text-[0.66rem] font-medium uppercase tracking-[0.26em] text-kaytori-gold/80 md:mt-2 md:text-[0.65rem] md:tracking-[0.28em]">
             Notre carte
           </p>
-        </div>
-
-        <div className="mx-auto mt-4 max-w-2xl md:mt-5">
-          <label className="sr-only" htmlFor="yakamon-menu-search">
-            Rechercher un plat
-          </label>
-          <div className="flex min-h-[48px] items-center gap-2 rounded-full border border-kaytori-black/10 bg-white px-3 py-2 shadow-sm">
-            <span className="shrink-0 text-base text-kaytori-muted" aria-hidden>
-              🔍
-            </span>
-            <input
-              id="yakamon-menu-search"
-              type="search"
-              enterKeyHint="search"
-              autoComplete="off"
-              value={query}
-              onChange={(e) => setQuery(e.target.value)}
-              placeholder="Rechercher un plat…"
-              className="min-h-[44px] min-w-0 flex-1 bg-transparent font-sans text-base text-kaytori-black placeholder:text-kaytori-muted/55 outline-none md:min-h-0 md:text-[0.82rem]"
-            />
-            {query ? (
-              <button
-                type="button"
-                onClick={() => setQuery("")}
-                className="grid h-7 w-7 shrink-0 place-items-center rounded-full text-kaytori-muted/60 transition-colors hover:bg-kaytori-cream hover:text-kaytori-black"
-                aria-label="Effacer la recherche"
-              >
-                ✕
-              </button>
-            ) : null}
-          </div>
         </div>
       </header>
 
@@ -463,25 +427,13 @@ export function YakamonOnlineMenu() {
               🔎
             </div>
             <p className="font-sans text-sm text-kaytori-muted">
-              {query.trim()
-                ? "Aucun plat ne correspond à ta recherche."
-                : "Aucun plat à afficher pour le moment."}
+              Aucun plat à afficher pour le moment.
             </p>
-            {query ? (
-              <button
-                type="button"
-                onClick={() => setQuery("")}
-                className="mt-4 inline-flex items-center gap-2 rounded-full border border-kaytori-black/10 bg-white px-4 py-2 text-[0.78rem] font-semibold text-kaytori-black transition-colors hover:bg-kaytori-cream"
-              >
-                Effacer la recherche
-              </button>
-            ) : null}
           </div>
         ) : (
           <div className="mx-auto max-w-5xl space-y-12 md:space-y-16">
             {sectionsData.map(({ category, items }) => {
               const sectionGroups = groupItemsForMenuTab(category, items);
-              const q = query.trim();
               return (
                 <section
                   key={category}
@@ -502,7 +454,6 @@ export function YakamonOnlineMenu() {
                       </h2>
                       <p className="mt-1 font-sans text-[0.7rem] font-medium uppercase tracking-[0.16em] text-kaytori-muted md:text-[0.72rem]">
                         {items.length} plat{items.length !== 1 ? "s" : ""}
-                        {q ? " · filtre actif" : ""}
                       </p>
                     </div>
                   </div>
