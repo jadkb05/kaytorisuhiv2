@@ -365,19 +365,18 @@ export function YakamonOnlineMenu() {
         </div>
       </header>
 
-      <div className="relative min-h-0 flex-1 overflow-y-auto overscroll-y-contain scroll-smooth bg-[#f7f6f2] [scrollbar-gutter:stable]">
-        {sectionsData.length > 1 ? (
-          <nav
-            className="sticky top-0 z-10 border-b border-kaytori-black/[0.06] bg-[#fafaf7]/95 px-3 pb-3 pt-3 shadow-[0_6px_16px_-8px_rgba(10,15,13,0.08)] backdrop-blur-md md:px-10 md:pb-3.5 md:pt-4"
-            aria-label="Accès rapide aux catégories"
-          >
+      {sectionsData.length > 1 ? (
+        <nav
+          className="z-20 shrink-0 border-b border-kaytori-black/[0.06] bg-[#fafaf7] px-3 pb-3 pt-3 shadow-[0_6px_16px_-8px_rgba(10,15,13,0.08)] md:px-10 md:pb-3.5 md:pt-4"
+          aria-label="Accès rapide aux catégories"
+        >
             <p className="mb-1 text-center font-sans text-[0.58rem] font-semibold uppercase tracking-[0.22em] text-kaytori-muted/75">
               Sommaire
             </p>
             <p className="mb-2.5 text-center font-sans text-[0.62rem] font-normal text-kaytori-muted/65 md:mb-3">
               Fais défiler vers la droite pour voir toutes les rubriques
             </p>
-            <div className="relative -mx-1 md:mx-0">
+            <div className="relative md:mx-0">
               <div
                 className="pointer-events-none absolute inset-y-0 left-0 z-[1] w-6 bg-gradient-to-r from-[#fafaf7] to-transparent md:w-8"
                 aria-hidden
@@ -387,10 +386,13 @@ export function YakamonOnlineMenu() {
                 aria-hidden
               />
               <ul
-                className="touch-pan-x flex snap-x snap-mandatory list-none flex-nowrap gap-2 overflow-x-auto overscroll-x-contain scroll-smooth px-3 py-1 [-ms-overflow-style:none] [scrollbar-width:none] md:gap-2.5 md:px-4 [&::-webkit-scrollbar]:hidden"
+                className="touch-pan-x flex snap-x snap-mandatory list-none flex-nowrap gap-2 overflow-x-auto overscroll-x-contain scroll-smooth py-1 pl-3 pr-3 [scroll-padding-inline:0.75rem] [-ms-overflow-style:none] [scrollbar-width:none] md:gap-2.5 md:px-4 md:[scroll-padding-inline:1rem] [&::-webkit-scrollbar]:hidden"
               >
-                {sectionsData.map(({ category }) => (
-                  <li key={category} className="snap-start shrink-0">
+                {sectionsData.map(({ category }, index) => (
+                  <li
+                    key={category}
+                    className={`shrink-0 snap-start ${index === sectionsData.length - 1 ? "snap-end" : ""}`}
+                  >
                     <a
                       href={`#${categoryAnchorId(category)}`}
                       className="group flex h-[4.25rem] w-[5.75rem] flex-col items-center justify-center gap-0.5 overflow-hidden rounded-xl border border-kaytori-black/10 bg-white px-1 py-1.5 text-center outline-none transition-colors duration-150 hover:border-kaytori-gold/50 hover:bg-kaytori-cream/40 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-kaytori-green/40 sm:h-[4.5rem] sm:w-24"
@@ -409,9 +411,10 @@ export function YakamonOnlineMenu() {
                 ))}
               </ul>
             </div>
-          </nav>
-        ) : null}
+        </nav>
+      ) : null}
 
+      <div className="relative min-h-0 flex-1 overflow-y-auto overscroll-y-contain scroll-smooth bg-[#f7f6f2] [scrollbar-gutter:stable]">
         <p className="mx-auto max-w-2xl px-3 pt-3 text-center font-sans text-[0.72rem] leading-relaxed text-kaytori-muted md:px-10 md:pt-4 md:text-[0.72rem]">
           <span className="font-medium text-kaytori-black">+</span> au panier, puis{" "}
           <span className="font-medium text-kaytori-green">WhatsApp</span> avec le total
@@ -420,7 +423,7 @@ export function YakamonOnlineMenu() {
           </span>
         </p>
 
-        <div className="px-2.5 pb-6 pt-2 max-md:pb-24 sm:px-6 sm:pb-8 sm:pt-3 md:px-10 md:pb-10 md:pt-4">
+        <div className="px-2 pb-4 pt-2 max-md:pb-4 sm:px-6 sm:pb-8 sm:pt-3 md:px-10 md:pb-10 md:pt-4">
         {totalVisible === 0 ? (
           <div className="py-12 text-center">
             <div className="mb-3 text-4xl" aria-hidden>
@@ -431,14 +434,14 @@ export function YakamonOnlineMenu() {
             </p>
           </div>
         ) : (
-          <div className="mx-auto max-w-5xl space-y-12 md:space-y-16">
+          <div className="mx-auto max-w-5xl space-y-12 pb-0 md:space-y-16">
             {sectionsData.map(({ category, items }) => {
               const sectionGroups = groupItemsForMenuTab(category, items);
               return (
                 <section
                   key={category}
                   id={categoryAnchorId(category)}
-                  className="scroll-mt-[min(12rem,36svh)]"
+                  className="scroll-mt-3"
                   aria-labelledby={`heading-${categoryAnchorId(category)}`}
                 >
                   <div className="flex items-end justify-between gap-3 border-b-2 border-kaytori-gold/40 pb-3 md:pb-4">

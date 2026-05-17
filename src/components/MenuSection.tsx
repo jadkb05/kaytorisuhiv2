@@ -31,7 +31,7 @@ export function MenuSection() {
       </div>
       <div className="pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-kaytori-gold/35 to-transparent" />
 
-      <div className="relative mx-auto w-full max-w-[1180px] px-2 sm:px-4 md:px-5">
+      <div className="relative mx-auto w-full max-w-[1180px] px-3 sm:px-4 md:px-5">
         <Reveal>
           <header className="mx-auto mb-12 max-w-2xl text-center md:mb-16">
             <span className="inline-flex items-center gap-2 rounded-full border border-kaytori-gold/45 bg-white/70 px-4 py-1.5 text-[0.68rem] font-bold uppercase tracking-[0.22em] text-kaytori-black shadow-sm backdrop-blur-sm">
@@ -68,7 +68,7 @@ export function MenuSection() {
         </Reveal>
 
         {menuTab === "online" ? (
-          <div className="relative mx-auto max-w-[1100px] max-md:-mx-0.5">
+          <div className="relative mx-auto w-full max-w-[1100px] max-md:mx-4 max-md:max-w-[calc(100%-2rem)] sm:max-md:mx-5 sm:max-md:max-w-[calc(100%-2.5rem)]">
             <div className="flex h-[min(calc(76dvh+5cm),calc(54rem+5cm))] min-h-[calc(380px+5cm)] max-h-[min(calc(82dvh+5cm),calc(56rem+5cm))] flex-col overflow-hidden rounded-2xl border border-kaytori-black/[0.07] shadow-[0_12px_40px_-18px_rgba(10,15,13,0.14)] max-md:rounded-xl max-md:shadow-md md:rounded-[1.35rem] md:border-kaytori-gold/35 md:shadow-[0_22px_56px_-28px_rgba(10,15,13,0.18)]">
               <YakamonOnlineMenu />
             </div>
